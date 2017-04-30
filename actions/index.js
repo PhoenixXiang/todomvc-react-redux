@@ -1,7 +1,7 @@
 import * as types from '../constants/ActionTypes';
 
 function makeActionCreator(type, ...argNames) {
-  return function(...args) {
+  return function (...args) {
     let action = { type };
     argNames.forEach((arg, index) => {
       action[argNames[index]] = args[index];
@@ -11,10 +11,10 @@ function makeActionCreator(type, ...argNames) {
 }
 export const addTodo = makeActionCreator(types.ADD_TODO, "text");
 export const deleteTodo = makeActionCreator(types.DELETE_TODO, "id");
-export const editTodo = makeActionCreator(types.EDIT_TODO, ["id","text"]);
+export const editTodo = makeActionCreator(types.EDIT_TODO, "id", "text");
 export const completeTodo = makeActionCreator(types.COMPLETE_TODO, "id");
-export const completeAll = makeActionCreator(types.COMPLETE_ALL,[]);
-export const clearCompleted = makeActionCreator(types.CLEAR_COMPLETED,[]);
+export const completeAll = makeActionCreator(types.COMPLETE_ALL);
+export const clearCompleted = makeActionCreator(types.CLEAR_COMPLETED);
 
 
 // export function addTodo(text) {
